@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LUMOS ENTERTAINMENT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf8f4;
+  --bg-alt:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#f4f1e9;
+  --line:#e7e2d5;
+  --text:#1d1a15;
+  --text-muted:#736d5e;
+  --accent:#c9892c;
+  --accent-soft:#c9892c22;
+  --accent-2:#178f7c;
+  --accent-3:#8874e6;
+  --danger:#c33f56;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,72px);}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Noto Sans KR',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+.display{font-family:'Black Han Sans','Noto Sans KR',sans-serif; letter-spacing:0.02em;}
+a{color:inherit; text-decoration:none;}
+img,svg{max-width:100%;}
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+section{overflow-x:hidden;}
+
+/* ---------- NAV ---------- */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding-top:env(safe-area-inset-top,0px);
+  background:rgba(250,248,244,0.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1120px; margin:0 auto; padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo{display:flex; align-items:center; gap:10px;}
+.logo-mark{width:30px; height:30px; flex:none;}
+.logo-word{font-family:'Black Han Sans'; font-size:20px; letter-spacing:0.06em;}
+.logo-word span{color:var(--accent);}
+.nav-links{display:flex; gap:28px; font-size:14px; color:var(--text-muted);}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{
+  background:var(--accent); color:#fff; font-weight:700; font-size:13px;
+  padding:9px 18px; border-radius:999px;
+}
+.burger{
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:10px; margin-left:14px; flex:none;
+  background:var(--bg-alt); border:1px solid var(--line); color:var(--text);
+  font-size:17px; cursor:pointer; text-decoration:none; transition:border-color .2s;
+}
+.burger:hover{border-color:var(--accent); color:var(--accent);}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:92vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; position:relative; padding:140px 24px 80px;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 18%, var(--accent-soft), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 80%, #178f7c14, transparent 70%),
+    var(--bg);
+}
+.hero-eyebrow{color:var(--accent-2); font-size:13px; letter-spacing:0.3em; margin-bottom:18px;}
+.hero h1{
+  font-size:clamp(54px,10vw,124px); margin:0; line-height:0.95;
+}
+.hero h1 .glow{color:var(--accent); text-shadow:0 0 40px var(--accent-soft), 0 0 90px #c9892c33;}
+.hero p{
+  max-width:560px; margin:26px auto 0; color:var(--text-muted); font-size:17px;
+}
+.hero-actions{display:flex; gap:14px; margin-top:38px; flex-wrap:wrap; justify-content:center;}
+.btn{
+  padding:14px 28px; border-radius:999px; font-weight:700; font-size:14px; cursor:pointer; border:1px solid transparent;
+}
+.btn-primary{background:var(--accent); color:#fff;}
+.btn-ghost{border-color:var(--line); color:var(--text); background:transparent;}
+
+/* ---------- SECTION HEADINGS ---------- */
+.section{padding:110px 0;}
+.section-alt{background:var(--bg-alt);}
+.head{max-width:640px; margin-bottom:56px;}
+.head .tag{color:var(--accent-2); font-size:13px; letter-spacing:0.2em; margin-bottom:10px; display:block;}
+.head h2{font-size:clamp(30px,4.5vw,44px); margin:0 0 14px;}
+.head p{color:var(--text-muted); font-size:16px; max-width:520px;}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:start;}
+.about-text p{color:var(--text-muted); font-size:16px; margin-bottom:16px;}
+.stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+.stat{background:var(--surface); padding:26px 22px;}
+.stat b{font-family:'Black Han Sans'; font-size:32px; color:var(--accent-2); display:block;}
+.stat span{color:var(--text-muted); font-size:13px;}
+
+/* ---------- VALUES ---------- */
+.value-row{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;}
+.value-card{background:var(--surface); padding:34px 28px;}
+.value-card .n{color:var(--accent); font-family:'Black Han Sans'; font-size:14px; margin-bottom:14px; display:block;}
+.value-card h3{margin:0 0 10px; font-size:19px;}
+.value-card p{color:var(--text-muted); font-size:14.5px; margin:0;}
+
+/* ---------- ARTISTS ---------- */
+.artist-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.artist-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:18px; overflow:hidden;
+  transition:border-color .2s;
+}
+.artist-card:hover{border-color:var(--accent);}
+.artist-photo{
+  height:230px; display:flex; align-items:center; justify-content:center;
+  font-family:'Black Han Sans'; font-size:46px; color:#fff;
+}
+.artist-photo.g1{background:linear-gradient(150deg,#a396e8,#4f4590);}
+.artist-photo.g2{background:linear-gradient(150deg,#2bb8a8,#0f5850);}
+.artist-photo.g3{background:linear-gradient(150deg,#e2a4c1,#7a3453);}
+.artist-body{padding:20px 22px 24px;}
+.artist-body .type{color:var(--accent-2); font-size:12px; letter-spacing:0.15em; margin-bottom:6px; display:block;}
+.artist-body h3{margin:0 0 8px; font-size:20px;}
+.artist-body p{margin:0; color:var(--text-muted); font-size:14px;}
+
+/* ---------- NEWS ---------- */
+.news-hero{background:#f2d9cf; padding:90px 0 70px; overflow:hidden;}
+.news-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  margin-bottom:38px; gap:20px; flex-wrap:wrap;
+}
+.news-title{
+  font-size:clamp(64px,11vw,130px); margin:0; line-height:0.85; color:#1d1a15;
+}
+.news-arrows{display:flex; gap:10px;}
+.news-arrows button{
+  width:56px; height:56px; border-radius:50%; border:1px solid #1d1a1533;
+  background:transparent; color:#1d1a15; font-size:24px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:background .15s;
+}
+.news-arrows button:hover{background:#1d1a1512;}
+.news-arrows button:disabled{opacity:0.3; cursor:default;}
+.news-track{
+  display:flex; gap:0; overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none; padding-bottom:6px;
+}
+.news-track::-webkit-scrollbar{display:none;}
+.news-card{
+  flex:0 0 auto; width:340px; scroll-snap-align:start;
+  border-top:2px solid #1d1a15; padding:26px 26px 0 0; margin-right:26px;
+}
+.news-card h3{
+  font-size:24px; line-height:1.35; margin:0 0 16px; color:#1d1a15; min-height:96px;
+}
+.news-card p{
+  color:#4a463c; font-size:14px; line-height:1.6; margin:0 0 26px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.news-card .meta{
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid #1d1a1526; padding-top:16px; font-size:13px; color:#4a463c;
+}
+.news-card .meta .go{
+  width:34px; height:34px; border-radius:50%; border:1px solid #1d1a1540;
+  display:flex; align-items:center; justify-content:center; font-size:15px;
+}
+@media (max-width:700px){
+  .news-card{width:78vw;}
+}
+
+/* ---------- AUDITION ---------- */
+.aud-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:70px;}
+.aud-card{background:var(--surface); padding:30px 26px;}
+.aud-card h3{margin:0 0 10px; font-size:18px; color:var(--accent-2);}
+.aud-card p{color:var(--text-muted); font-size:14.5px; margin:0 0 6px;}
+
+.check-box{
+  background:var(--surface); border:1px solid var(--line); border-radius:20px;
+  padding:46px; max-width:560px; margin:0 auto;
+  box-shadow:0 0 0 1px transparent, 0 20px 60px -30px #c9892c40;
+}
+.check-box h3{font-size:22px; margin:0 0 6px; text-align:center;}
+.check-box .sub{color:var(--text-muted); font-size:14px; text-align:center; margin:0 0 30px;}
+.field{margin-bottom:18px;}
+.field label{display:block; font-size:13px; color:var(--text-muted); margin-bottom:7px;}
+.field input{
+  width:100%; padding:13px 14px; border-radius:10px; border:1px solid var(--line);
+  background:var(--bg-alt); color:var(--text); font-size:15px; font-family:inherit;
+}
+.field input:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);}
+.check-submit{
+  width:100%; padding:15px; border-radius:10px; border:none; background:var(--accent);
+  color:#fff; font-weight:700; font-size:15px; cursor:pointer; margin-top:8px;
+}
+.check-submit:hover{filter:brightness(1.06);}
+.result{
+  margin-top:24px; padding:22px; border-radius:12px; font-size:14.5px; line-height:1.65;
+}
+.result.hidden{display:none;}
+.result.fail{background:#c33f560f; border:1px solid #c33f5640;}
+.result.fail .rtitle{color:var(--danger); font-family:'Black Han Sans'; font-size:20px; display:block; margin-bottom:10px;}
+.result.notfound{background:var(--surface-2); border:1px solid var(--line);}
+.result.notfound .rtitle{color:var(--text); font-weight:700; font-size:16px; display:block; margin-bottom:10px;}
+.result p{margin:4px 0; color:var(--text-muted);}
+
+/* ---------- HQ ---------- */
+.hq-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+.hq-building{
+  border-radius:18px; overflow:hidden; border:1px solid var(--line);
+  background:linear-gradient(180deg,#dce6ee,#aebfd0);
+}
+.hq-text p{color:var(--text-muted); font-size:15.5px; margin-bottom:14px;}
+.hq-text .addr{
+  font-size:14px; color:var(--text); border-left:2px solid var(--accent); padding-left:14px; margin-top:20px;
+}
+
+/* ---------- QUOTE ---------- */
+.quote-section{padding:100px 0; text-align:center;}
+.quote-section .wrap{max-width:720px;}
+.quote-mark{font-family:'Black Han Sans'; font-size:64px; color:var(--accent); line-height:1; margin:0 0 8px;}
+blockquote{
+  margin:0; font-family:'Black Han Sans'; font-size:clamp(24px,3.4vw,34px);
+  line-height:1.5; color:var(--text);
+}
+.quote-by{display:block; margin-top:22px; color:var(--text-muted); font-size:14px;}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line); padding:60px 0 40px; background:var(--bg-alt);}
+.foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; margin-bottom:40px;}
+.foot-col h4{font-size:13px; color:var(--text-muted); letter-spacing:0.1em; margin:0 0 14px;}
+.foot-col p, .foot-col a{display:block; color:var(--text-muted); font-size:13.5px; margin-bottom:8px;}
+.foot-bottom{border-top:1px solid var(--line); padding-top:24px; color:var(--text-muted); font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .nav-links{display:none;}
+  .about-grid{grid-template-columns:1fr;}
+  .value-row{grid-template-columns:1fr;}
+  .artist-grid{grid-template-columns:1fr;}
+  .aud-grid{grid-template-columns:1fr;}
+  .hq-grid{grid-template-columns:1fr;}
+  .check-box{padding:30px 22px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" stroke="#8874e6" stroke-width="1.4"/>
+        <path d="M20 8 L23 17 L32 20 L23 23 L20 32 L17 23 L8 20 L17 17 Z" fill="#c9892c"/>
+        <circle cx="20" cy="20" r="3.2" fill="#faf8f4"/>
+      </svg>
+      <span class="logo-word">LUMOS<span>·</span>ENT</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">회사소개</a>
+      <a href="#artists">아티스트</a>
+      <a href="#news">뉴스</a>
+      <a href="#audition">오디션</a>
+      <a href="#result">합격조회</a>
+    </nav>
+    <a class="nav-cta" href="#audition">오디션 지원</a>
+    <a class="burger" id="burgerLink" aria-label="회사 소개 페이지로 이동" title="회사 소개 자세히 보기" href="https://claude.ai/artifact/EnMUHBebAqkQdGDnLCJGJ7" target="_blank" rel="noopener">☰</a>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-eyebrow">LIGHT THE STAGE, LEAD THE MOMENT</span>
+  <h1 class="display">LUM<span class="glow">O</span>S<br>ENTERTAINMENT</h1>
+  <p>루모스 엔터테인먼트는 빛(Lumos)이라는 이름처럼, 무명의 재능을 세상에 비추는 것을 사명으로 하는 종합 엔터테인먼트 기업입니다. 보컬·퍼포먼스·프로듀싱 전 과정을 자체 시스템으로 운영합니다.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#audition">오디션 정보 보기</a>
+    <a class="btn btn-ghost" href="#result">합격 여부 조회</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <span class="head tag" style="display:block;margin-bottom:10px;">ABOUT US</span>
+      <h2 class="display" style="font-size:36px;margin:0 0 20px;">우리는 어떻게<br>아티스트를 키우는가</h2>
+      <p>루모스 엔터테인먼트는 2016년 설립 이래, 보컬 트레이닝·퍼포먼스 디렉팅·글로벌 프로듀싱을 전담하는 3개의 전문 아카데미를 자체 운영해왔습니다. 매년 정기 공개 오디션과 수시 캐스팅을 통해 연습생을 선발하며, 평균 3~5년의 체계적인 트레이닝 과정을 거쳐 데뷔합니다.</p>
+      <p>단순한 실력 평가를 넘어, 무대 위에서 보여줄 수 있는 고유한 이야기와 개성을 함께 설계합니다. 국내 활동은 물론 아시아·북미 권역 동시 프로모션 체계를 갖추고 있으며, 소속 아티스트의 저작권·초상권 관리를 위한 별도 법무팀을 운영합니다.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><b>2016</b><span>설립 연도</span></div>
+      <div class="stat"><b>7</b><span>소속 아티스트 팀</span></div>
+      <div class="stat"><b>32</b><span>데뷔 아티스트 수</span></div>
+      <div class="stat"><b>14</b><span>진출 국가/지역</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">PHILOSOPHY</span>
+      <h2>연습생부터 데뷔까지, 세 가지 원칙</h2>
+      <p>루모스는 트레이닝의 모든 단계에서 다음 세 가지 기준을 지킵니다.</p>
+    </div>
+    <div class="value-row">
+      <div class="value-card">
+        <span class="n">TRAINING</span>
+        <h3>체계적 육성 시스템</h3>
+        <p>보컬·댄스·랩·외국어 전문 트레이너진이 1:1 맞춤 커리큘럼을 설계하고, 분기별 평가로 성장 과정을 기록합니다.</p>
+      </div>
+      <div class="value-card">
+        <span class="n">CARE</span>
+        <h3>연습생 보호 정책</h3>
+        <p>미성년 연습생에 대한 학업·심리 상담을 병행하며, 표준계약서 기반의 투명한 계약 구조를 원칙으로 합니다.</p>
+      </div>
+      <div class="value-card">
+        <span class="n">GLOBAL</span>
+        <h3>글로벌 프로듀싱</h3>
+        <p>해외 작곡가 및 안무팀과의 협업 네트워크를 통해 데뷔 시점부터 글로벌 시장을 함께 겨냥합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="wrap">
+    <p class="quote-mark">"</p>
+    <blockquote>재능은 다듬어질 때, 비로소 빛이 됩니다.</blockquote>
+    <span class="quote-by">— 루모스 엔터테인먼트 대표이사 김도윤</span>
+  </div>
+</section>
+
+<section class="section" id="artists">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">ARTISTS</span>
+      <h2>루모스의 아티스트</h2>
+      <p>서로 다른 색깔을 가진 팀들이 각자의 세계관으로 무대를 채웁니다.</p>
+    </div>
+    <div class="artist-grid">
+      <div class="artist-card">
+        <div class="artist-photo g1">SN</div>
+        <div class="artist-body">
+          <span class="type">BOY GROUP · 6인조</span>
+          <h3>STELLA NOVA</h3>
+          <p>2021년 데뷔. 강렬한 퍼포먼스와 절제된 보컬 밸런스로 정평이 난 5년 차 보이그룹.</p>
+        </div>
+      </div>
+      <div class="artist-card">
+        <div class="artist-photo g2">ED</div>
+        <div class="artist-body">
+          <span class="type">GIRL GROUP · 5인조</span>
+          <h3>EDEN LUX</h3>
+          <p>2023년 데뷔. 몽환적인 콘셉트와 라이브 실력을 앞세운 4세대 대표 걸그룹.</p>
+        </div>
+      </div>
+      <div class="artist-card">
+        <div class="artist-photo g3">OB</div>
+        <div class="artist-body">
+          <span class="type">CO-ED UNIT · 4인조</span>
+          <h3>ORBIT.</h3>
+          <p>2026년 데뷔 예정. 프로듀싱 단계부터 팬들과 함께 만들어가는 신인 유닛.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="news-hero" id="news">
+  <div class="wrap">
+    <div class="news-head">
+      <h2 class="news-title display">NEWS</h2>
+      <div class="news-arrows">
+        <button id="newsPrev" aria-label="이전 뉴스">‹</button>
+        <button id="newsNext" aria-label="다음 뉴스">›</button>
+      </div>
+    </div>
+    <div class="news-track" id="newsTrack">
+      <article class="news-card">
+        <h3>2026 하반기 글로벌 공개 오디션, 오늘부터 접수 시작</h3>
+        <p>보컬·댄스·랩·비주얼 4개 부문 동시 접수. 온라인 영상 심사로 1차 전형이 진행됩니다.</p>
+        <div class="meta"><span>AUDITION</span><span>2026.09.20</span></div>
+      </article>
+      <article class="news-card">
+        <h3>EDEN LUX, 첫 단독 콘서트 전석 매진 기록</h3>
+        <p>데뷔 3년 만에 연 첫 단독 콘서트가 오픈 3분 만에 전 좌석 매진을 기록했습니다.</p>
+        <div class="meta"><span>ARTIST <span class="go">→</span></span><span>2026.08.02</span></div>
+      </article>
+      <article class="news-card">
+        <h3>루모스 엔터테인먼트, 아시아 지사 설립 발표</h3>
+        <p>글로벌 프로모션 강화를 위해 아시아 권역 지사를 신설한다고 공식 발표했습니다.</p>
+        <div class="meta"><span>COMPANY</span><span>2026.06.15</span></div>
+      </article>
+      <article class="news-card">
+        <h3>STELLA NOVA 정규 2집 발매, 음원차트 1위</h3>
+        <p>5년 차 보이그룹 STELLA NOVA가 정규 2집으로 주요 음원차트 정상에 올랐습니다.</p>
+        <div class="meta"><span>ARTIST <span class="go">→</span></span><span>2026.05.03</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="audition">
+  <div class="wrap">
+    <div class="head">
+      <span class="tag">AUDITION</span>
+      <h2>2026 루모스 공개 오디션</h2>
+      <p>보컬, 댄스, 랩, 비주얼 4개 부문에서 상시 및 정기 오디션을 진행합니다.</p>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card">
+        <h3>지원 자격</h3>
+        <p>만 9세 이상, 국적 무관</p>
+        <p>보컬 · 댄스 · 랩 · 비주얼 부문 중복 지원 가능</p>
+        <p>1인당 자유곡 1곡 또는 안무 1개 영상 제출</p>
+      </div>
+      <div class="aud-card">
+        <h3>전형 절차</h3>
+        <p>1차 : 서류 · 영상 심사</p>
+        <p>2차 : 실기 대면 심사</p>
+        <p>3차 : 최종 임원 면접</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="result">
+  <div class="wrap">
+    <div class="head" style="margin:0 auto 46px; text-align:center; max-width:520px;">
+      <span class="tag">RESULT CHECK</span>
+      <h2>오디션 합격 조회</h2>
+      <p style="margin:0 auto;">이름, 응시번호, 생년월일(6자리)을 정확히 입력해주세요.</p>
+    </div>
+
+    <form class="check-box" id="checkForm">
+      <h3>합격 여부 확인</h3>
+      <p class="sub">본인 명의로 접수한 정보만 조회할 수 있습니다</p>
+
+      <div class="field">
+        <label for="name">이름</label>
+        <input type="text" id="name" placeholder="홍길동" required>
+      </div>
+      <div class="field">
+        <label for="appNum">응시번호</label>
+        <input type="text" id="appNum" placeholder="예) 0000" required>
+      </div>
+      <div class="field">
+        <label for="birth">생년월일 (6자리)</label>
+        <input type="text" id="birth" placeholder="YYMMDD" maxlength="6" required>
+      </div>
+
+      <button class="check-submit" type="submit">조회하기</button>
+
+      <div class="result hidden" id="resultBox"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>LUMOS ENTERTAINMENT</h4>
+        <p>서울특별시 강남구 루모스로 116</p>
+        <p>사업자등록번호 000-00-00000</p>
+      </div>
+      <div class="foot-col">
+        <h4>CONTACT</h4>
+        <p>대표전화 02-0000-0000</p>
+        <p>오디션 문의 audition@lumos-ent.example</p>
+      </div>
+      <div class="foot-col">
+        <h4>MENU</h4>
+        <a href="#about">회사소개</a>
+        <a href="#artists">아티스트</a>
+        <a href="#audition">오디션</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LUMOS ENTERTAINMENT. All rights reserved.</span>
+      <span>본 사이트는 예시로 제작된 가상의 엔터테인먼트사 페이지입니다.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const track = document.getElementById('newsTrack');
+  const prev = document.getElementById('newsPrev');
+  const next = document.getElementById('newsNext');
+  const step = () => (track.querySelector('.news-card')?.offsetWidth || 340) + 26;
+  prev.addEventListener('click', () => track.scrollBy({left: -step(), behavior:'smooth'}));
+  next.addEventListener('click', () => track.scrollBy({left: step(), behavior:'smooth'}));
+})();
+
+document.getElementById('checkForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const appNum = document.getElementById('appNum').value.trim();
+  const birth = document.getElementById('birth').value.trim();
+  const box = document.getElementById('resultBox');
+
+  box.classList.remove('hidden','fail','notfound');
+
+  if(name === '한해나' && appNum === '0987' && birth === '131119'){
+    box.classList.add('fail');
+    box.innerHTML =
+      '<span class="rtitle">불합격 안내</span>' +
+      '<p>안녕하세요, 한해나 지원자님. 아쉽게도 이번 2026 루모스 공개 오디션에서 좋은 결과로 이어지지 못했음을 알려드립니다.</p>' +
+      '<p>많은 지원자들의 열정과 실력을 마주하며 최종 결정까지 신중을 기했습니다. 이번 결과가 지원자님의 노력을 대변하지 않는다는 것을 잘 알고 있으며, 다음 기회에 다시 만나 뵙기를 진심으로 기대합니다.</p>' +
+      '<p>그동안 준비해주셔서 진심으로 감사드립니다.</p>';
+  } else {
+    box.classList.add('notfound');
+    box.innerHTML =
+      '<span class="rtitle">일치하는 지원자 정보가 없습니다</span>' +
+      '<p>입력하신 이름, 응시번호, 생년월일을 다시 한번 확인해주세요.</p>' +
+      '<p>정보가 정확한데도 조회가 되지 않는다면 오디션 문의처로 연락해주시기 바랍니다.</p>';
+  }
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+
+</body>
+</html>
